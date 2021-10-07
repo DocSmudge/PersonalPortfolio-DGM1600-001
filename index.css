@@ -1,3 +1,138 @@
-h1 {
-    color: blue;
+*{
+    margin:0; 
 }
+
+
+html {
+    box-sizing:border-box;
+    scroll-behavior: smooth;
+}
+a{
+    text-decoration: none;
+
+}
+#navbar {
+    display:flex;
+    position: fixed;
+    justify-content: flex-end;
+    width: 100%;
+    background-color: #f8b2d3;
+
+    }
+
+    .nav-list{
+        display:flex;
+        margin-right: 2rem;
+        list-style-type: none;
+      
+}
+
+
+.nav-list a {
+    display: block;
+    padding: 2rem;
+    font-size: xx-large;
+    color: black;
+}
+
+
+.nav-list a:hover{
+background-color: rgb(240, 47, 111);
+}
+
+#welcome-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #6495ED;
+    height: 100vh;
+    font-size: 3rem;
+
+}
+#projects {
+    color: black;
+    text-align: center;
+    background-color: #6495ED;
+   
+}
+.projects-grid {
+    padding: 4.5rem 0;
+    display: flex;
+    background-color: #ee8885;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+}
+
+.project-tile {
+    margin: 1rem;
+
+}
+
+figcaption {
+    text-align: center;
+    font-size: x-large;
+    color:black;
+
+}
+
+}
+#contact {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color:black;
+    height: 20rem;
+    background-color: #c8fdfb;
+}
+
+#contact h1{
+    text-align: center;
+    font-size: 2rem;
+    padding: 3rem 0;
+   
+}
+#contact p{
+    text-align: center;
+    font-size: xx-large;
+    padding-bottom: 2rem;
+}
+
+#contact div {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 4rem;
+
+}
+#contact div a {
+    margin: 0 2rem;
+    font-size: 2rem;
+    text-shadow: 2px 2px 1px #1f1f1f;
+    transition: transform 0.3s ease-out;
+    color: #fa3bf0;
+
+}
+
+#contact div a:hover {
+    transform: translateY(8px);
+}
+footer{
+    font-size: 1.5rem;
+    display:flex;
+    justify-content: center;
+    padding: 1rem;
+    background-color: blueviolet;
+}
+@media (max-width: 1200px) {
+    html {
+      font-size: 60%;
+      color:rgb(240, 47, 111);
+    }
+  }
+  @media (max-width: 900px) {
+    html {
+      font-size: 58%;
+    }
+  }
