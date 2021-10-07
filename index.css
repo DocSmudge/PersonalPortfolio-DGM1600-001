@@ -16,7 +16,7 @@ a{
     position: fixed;
     justify-content: flex-end;
     width: 100%;
-    background-color: #f8b2d3;
+    background-color: #f09997;
 
     }
 
@@ -33,11 +33,12 @@ a{
     padding: 2rem;
     font-size: xx-large;
     color: black;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 
 .nav-list a:hover{
-background-color: rgb(240, 47, 111);
+background-color: #b76f6c
 }
 
 #welcome-section {
@@ -45,21 +46,25 @@ background-color: rgb(240, 47, 111);
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #6495ED;
+    background-color: #ffe1d9;
     height: 100vh;
-    font-size: 3rem;
+    font-size: 2rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 
 }
 #projects {
     color: black;
+    font-size: 2rem;
     text-align: center;
-    background-color: #6495ED;
+    background-color: #ec4442;
+    padding: 4rem;
+    
    
 }
 .projects-grid {
     padding: 4.5rem 0;
     display: flex;
-    background-color: #ee8885;
+    background-color:#ec4442;
     flex-wrap: wrap;
     justify-content: center;
     
@@ -74,7 +79,20 @@ figcaption {
     text-align: center;
     font-size: x-large;
     color:black;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 
+}
+button{
+
+padding: 15px 120px;
+right: 200px;
+top: 35px;
+background-color: #f09997;
+font-size: 20px;
+
+}
+button:hover{
+    background-color: #b76f6c;
 }
 
 }
@@ -85,33 +103,39 @@ figcaption {
     align-items: center;
     color:black;
     height: 20rem;
-    background-color: #c8fdfb;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 #contact h1{
     text-align: center;
     font-size: 2rem;
     padding: 3rem 0;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: #ffe1d9;
    
 }
 #contact p{
-    text-align: center;
+    text-align: center; 
     font-size: xx-large;
-    padding-bottom: 2rem;
+    padding-bottom: 3.5rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: #ffe1d9;
 }
 
 #contact div {
     display: flex;
     justify-content: center;
     padding-bottom: 4rem;
+    background-color: #ffe1d9;
 
 }
 #contact div a {
     margin: 0 2rem;
     font-size: 2rem;
-    text-shadow: 2px 2px 1px #1f1f1f;
+    text-shadow: 2px 2px 1px #c4c4c4;
     transition: transform 0.3s ease-out;
-    color: #fa3bf0;
+    color: #000000;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 
 }
 
@@ -123,7 +147,9 @@ footer{
     display:flex;
     justify-content: center;
     padding: 1rem;
-    background-color: blueviolet;
+    background-color:  #f09997;
+    color: #000000;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 @media (max-width: 1200px) {
     html {
