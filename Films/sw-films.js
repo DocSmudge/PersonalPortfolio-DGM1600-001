@@ -15,6 +15,6 @@ figure.appendChild (figCaption)
 filmList.appendChild(figure)
 }
 
-
+// add a function later that will get the URL property and use Array.find() to match titles with posters.
 
 
