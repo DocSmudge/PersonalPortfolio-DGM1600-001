@@ -4,6 +4,9 @@ main{
     justify-content: center;
 }
 
+figure{
+    background-color: rosybrown;
+}
 img {
     border: 10px solid rosybrown;
 }
