@@ -59,6 +59,7 @@ background-color: #b76f6c
     background-color: #ec4442;
     padding: 4rem;
     
+    
    
 }
 .projects-grid {
@@ -95,7 +96,7 @@ button:hover{
     background-color: #b76f6c;
 }
 
-}
+
 #contact {
     display:flex;
     flex-direction: column;
@@ -104,6 +105,7 @@ button:hover{
     color:black;
     height: 20rem;
     font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: #ffe1d9;
 }
 
 #contact h1{
@@ -111,7 +113,7 @@ button:hover{
     font-size: 2rem;
     padding: 3rem 0;
     font-family: Georgia, 'Times New Roman', Times, serif;
-    background-color: #ffe1d9;
+    
    
 }
 #contact p{
@@ -119,9 +121,8 @@ button:hover{
     font-size: xx-large;
     padding-bottom: 3.5rem;
     font-family: Georgia, 'Times New Roman', Times, serif;
-    background-color: #ffe1d9;
+    
 }
-
 #contact div {
     display: flex;
     justify-content: center;
