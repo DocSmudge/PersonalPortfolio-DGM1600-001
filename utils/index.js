@@ -7,4 +7,11 @@ export function getLastNumber(url) {
     }
     return url.slice(start, end);
   }
+  export function removeChildren (container){
+    console.log("hey",container, container.firstChild)
+    while (container.firstChild) {
+      container.removeChild(container.firstChild)
+    }
+  }
+
   
