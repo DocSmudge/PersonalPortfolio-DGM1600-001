@@ -1,5 +1,5 @@
 import { people } from "../data/people.js";
-import { getLastNumber } from "../utils/index.js";
+import { getLastNumber,removeChildren } from "../utils/index.js";
 
 const mainContent = document.querySelector("#main");
 
@@ -15,17 +15,19 @@ const otherCharacters = people.filter((person) => {
   }
 });
 
-const header = document.createElement("header");
-const maleButton = document.createElement("button");
-maleButton.textContent = "Male Characters";
 
 populateDOM(otherCharacters);
+removeChildren(mainContent);
+
+const header = document.createElement("header");
+const maleButton = document.createElement("button");
+const femaleButton = document.createElement("button");
+
+femaleButton.textContent = "Female Characters";
+maleButton.textContent = "Male Characters";
+
 
 maleButton.addEventListener("click", () => populateDOM(maleCharacters));
-
-const femaleButton = document.createElement("button");
-femaleButton.textContent = "Female Characters";
-
 femaleButton.addEventListener("click", () => populateDOM(femaleCharacters));
 
 header.appendChild(maleButton);
@@ -34,9 +36,6 @@ header.appendChild(femaleButton);
 document.body.insertBefore(header, mainContent);
 
 function populateDOM(characters) {
-  while (mainContent.firstChild) {
-    mainContent.removeChild(mainContent.firstChild);
-  }
 
   characters.forEach((element) => {
     const charFigure = document.createElement("figure");
