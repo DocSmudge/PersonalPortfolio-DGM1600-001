@@ -2,7 +2,6 @@ import { people } from "../data/people.js";
 import { getLastNumber,removeChildren } from "../utils/index.js";
 
 const mainContent = document.querySelector("#main");
-
 const maleCharacters = people.filter((person) => person.gender === "male");
 const femaleCharacters = people.filter((person) => person.gender === "female");
 const otherCharacters = people.filter((person) => {
@@ -15,40 +14,74 @@ const otherCharacters = people.filter((person) => {
   }
 });
 
+function populateDOM(characters) {
+  characters.forEach((character) => {
+    /* Creating Elemnts */
+    const charFigure = document.createElement("figure");
+    // <figure></figure>
 
-populateDOM(otherCharacters);
-removeChildren(mainContent);
+    const charImg = document.createElement("img");
+    // <img src=""></img>
 
+    const charCaption = document.createElement("figcaption");
+    // <figcapton></figcapton>
+
+    // Grabbing the id from url 
+    const charNum = getLastNumber(character.url);
+
+    /* minipulating elements */
+    charImg.src = `https://starwars-visualguide.com/assets/img/characters/${charNum}.jpg`;
+    // <img src="https://starwars-visualguide.com/assets/img/characters/3.jpg"/>
+
+    charCaption.textContent = character.name;
+    // <figcapton>name</figcapton>
+
+    /* Putting it all together */
+    charFigure.appendChild(charImg);
+    // <figure>
+    //   <img src="https://starwars-visualguide.com/assets/img/characters/3.jpg"></img>
+    // </figure>
+    charFigure.appendChild(charCaption);
+    // <figure>
+    //   <img src="https://starwars-visualguide.com/assets/img/characters/3.jpg"></img>
+    //   <figcapton>name</figcapton>
+    // </figure>
+    mainContent.appendChild(charFigure);
+    // <main id='main'>
+    //   <figure>
+    //     <img src="https://starwars-visualguide.com/assets/img/characters/3.jpg"></img>
+    //     <figcapton>name</figcapton>
+    //   </figure>
+    // </main>
+  });
+}
+
+function handleCharacterSelect(activeCharacters) {
+  removeChildren(mainContent);
+  populateDOM(activeCharacters);
+}
+
+// Creating
 const header = document.createElement("header");
 const maleButton = document.createElement("button");
 const femaleButton = document.createElement("button");
+const otherButton = document.createElement("button");
 
+// Mutating
 femaleButton.textContent = "Female Characters";
 maleButton.textContent = "Male Characters";
+otherButton.textContent = "Other Characters";
 
-
-maleButton.addEventListener("click", () => populateDOM(maleCharacters));
-femaleButton.addEventListener("click", () => populateDOM(femaleCharacters));
-
+// Adding to DOM
 header.appendChild(maleButton);
 header.appendChild(femaleButton);
+header.appendChild(otherButton);
+
+maleButton.addEventListener("click", () => handleCharacterSelect(maleCharacters));
+femaleButton.addEventListener("click", () => handleCharacterSelect(femaleCharacters));
+otherButton.addEventListener("click", () => handleCharacterSelect(otherCharacters));
 
 document.body.insertBefore(header, mainContent);
 
-function populateDOM(characters) {
 
-  characters.forEach((element) => {
-    const charFigure = document.createElement("figure");
-    const charImg = document.createElement("img");
-    const charNum = getLastNumber(element.url);
-    charImg.src = `https://starwars-visualguide.com/assets/img/characters/${charNum}.jpg`;
-
-    const charCaption = document.createElement("figcaption");
-    charCaption.textContent = element.name;
-
-    charFigure.appendChild(charImg);
-    charFigure.appendChild(charCaption);
-    mainContent.appendChild(charFigure);
-  });
-}
 

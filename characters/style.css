@@ -1,6 +1,7 @@
 *{
 margin: 0;
 box-sizing: border-box;
+
 }
 
 header{
@@ -41,3 +42,19 @@ figure img{
 figcaption{
     text-align: center;
 }
+
+  
+    footer{
+    font-size: 1.5rem;
+    display:flex;
+    justify-content: center;
+    padding: 1rem;
+    background-color:  #f09997;
+    color: #000000;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+
+}
+

@@ -1,20 +1,36 @@
+
+*{
+    margin: ;
+}
+
+header{
+    padding: 20px;
+    text-align: center;
+    background-color: #ffe1d9;
+    font-size: xxx-large;
+}
+body{
+    margin:0;
+}
 main{
     display:flex;
     flex-wrap: wrap;
     justify-content: center;
+    background-color: #ffe1d9;
+
 }
 
 figure{
-    background-color: rosybrown;
+    background-color:#f09997;
 }
 img {
-    border: 10px solid rosybrown;
+    border: 20px solid #f09997;
 }
 
 figcaption{
     text-align: center;
     font-size: xx-large;
-    background-color: rosybrown;
+    background-color: #f09997;
     padding-bottom: .5em;
 }
 
