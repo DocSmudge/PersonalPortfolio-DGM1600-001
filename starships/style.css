@@ -3,13 +3,14 @@
     box-sizing: border-box;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
-body header{
+h1{
 text-align: center;
 background-color: #f09997;
-padding: 50px;
-font-size: xx-large;
+padding: 20px;
+font-size: xxx-large;
+color: black;
+} 
 
-}
 #main{
     display: flex;
     background-color: #ffe1d9;
@@ -30,7 +31,10 @@ font-size: xx-large;
     transform: translateY(8px);
 }
 
-
+img{
+    border: 15px solid;
+    border-color: #f09997;
+}
 section{
 
     width: 100%;

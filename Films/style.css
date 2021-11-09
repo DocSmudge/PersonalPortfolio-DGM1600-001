@@ -1,13 +1,15 @@
 
 *{
-    margin: ;
+    margin:0;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-header{
+h1{
     padding: 20px;
     text-align: center;
-    background-color: #ffe1d9;
+    background-color: #f09997;
     font-size: xxx-large;
+   
 }
 body{
     margin:0;
@@ -22,6 +24,7 @@ main{
 
 figure{
     background-color:#f09997;
+    margin: 2.5rem;
 }
 img {
     border: 20px solid #f09997;
@@ -32,5 +35,17 @@ figcaption{
     font-size: xx-large;
     background-color: #f09997;
     padding-bottom: .5em;
+
+}
+footer{
+    font-size: 1.5rem;
+
+    display:flex;
+    justify-content: center;
+    padding: 1rem;
+    background-color:  #f09997;
+    color: #000000;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+   
 }
 

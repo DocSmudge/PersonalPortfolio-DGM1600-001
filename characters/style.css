@@ -1,17 +1,27 @@
 *{
 margin: 0;
 box-sizing: border-box;
+font-family: Georgia, 'Times New Roman', Times, serif;
+
 
 }
-
+h1{
+    text-align: center;
+    font-size: xxx-large;
+    background-color: #f09997;
+}
 header{
     display:flex;
     justify-content: space-around;
     background-color: #f09997;
    /* margin: 2em 0;*/
-   padding: 2em 0;
+   padding: .7rem 0;
+  
 }
 
+body{
+    background-color: #ffe1d9;
+}
 
 button{
 background-color: #f09997;
@@ -29,6 +39,7 @@ button:hover{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    background-color: #ffe1d9;
 }
  
 figure{
@@ -44,17 +55,17 @@ figcaption{
 }
 
   
-    footer{
-    font-size: 1.5rem;
+footer {
     display:flex;
     justify-content: center;
+    position: fixed;
+    bottom: 0;
     padding: 1rem;
+    width: 100%;
+    font-size: 1.5rem;
     background-color:  #f09997;
     color: #000000;
     font-family: Georgia, 'Times New Roman', Times, serif;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
 
 }
 
