@@ -1,16 +1,34 @@
 *{
     margin: 0;
     box-sizing: border-box;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+body header{
+text-align: center;
+background-color: #f09997;
+padding: 50px;
+font-size: xx-large;
+
 }
 #main{
     display: flex;
+    background-color: #ffe1d9;
 }
 
 
-.nav{
-    margin-left: 1em;
+.nav ul li{
+   padding: 0;
+   margin: 1em;
+   margin-left: 3em;
+   list-style-type:circle;
+   color: black;
+   transition: transform 0.3s ease-out;
+   
 }
-
+ 
+.nav ul li:hover{
+    transform: translateY(8px);
+}
 
 
 section{
@@ -19,9 +37,20 @@ section{
     display: flex;
     justify-content: center;
     align-items: center;
+
 }
 .box{
-    background-color: aqua;
+    background-color:  #f09997;
     text-align: center;
     font-size: xx-large;
 }
+footer{
+    font-size: 1.5rem;
+    display:flex;
+    justify-content: center;
+    padding: 1rem;
+    background-color:  #f09997;
+    color: #000000;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
