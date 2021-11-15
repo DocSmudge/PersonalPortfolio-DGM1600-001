@@ -16,7 +16,7 @@ const otherCharacters = people.filter((person) => {
 
 function populateDOM(characters) {
   characters.forEach((character) => {
-    /* Creating Elemnts */
+    /* Creating Elements */
     const charFigure = document.createElement("figure");
     // <figure></figure>
 
