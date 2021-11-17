@@ -2,6 +2,13 @@
     margin: 0;
     box-sizing: border-box;
 }
+
+header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
 .senators {
     display: flex;
     flex-wrap: wrap;

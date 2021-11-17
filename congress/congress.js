@@ -3,15 +3,15 @@ import { representatives } from '../data/representatives.js'
 
 
 const members = [...senators, ...representatives] //spread method - modern way to combine arrays like a genius! (not genus lol)
-
-console.log(members.length)
+const loyaltyHeading = document.querySelector('.mostLoyal')
+const seniortyHeading = document.querySelector('.seniority')
 
 const senatorDiv = document.querySelector('.senators')
 
 function SimplifiedMembers(chamberFilter){
-   const filter = members.filter(member => chamberFilter ? member.short_title === chamberFilter : members)
+   const filteredArray = members.filter(member => chamberFilter ? member.short_title === chamberFilter : member)
     
-    return senators.map(senator => {
+    return filteredArray.map(senator => {
         let middleName = senator.middle_name ? `${senator.middle_name}` : ` `
         return {
              id: senator.id,
@@ -42,24 +42,33 @@ function populateSenatorDiv(simpleSenators){
     })
 
 }
-const filterSenators = (prop, value) =>  SimplifiedSenators().filter(senator => senator[prop] === value)
+//const filterSenators = (prop, value) =>  SimplifiedMembers().filter(senator => senator[prop] === value)
     
     
     //console.log(filterSenators('gender', 'F'))
 
-     const mostSeniorSenator = SimplifiedSenators().reduce((acc, senator) => acc.seniority > senator.seniority ? acc : senator)
+    const mostSeniorMember = SimplifiedMembers().reduce((acc, senator) => acc.seniority > senator.seniority ? acc : senator)
 
-     //console.log(mostSeniorSenator)
+     seniortyHeading.textContent = `The Most Senior Member of Congress Is: ${mostSeniorMember.name} who has been in congress for ${mostSeniorMember.seniority} years.`
 
-     const mostLoyal = SimplifiedSenators().reduce((acc, senator) => {
+     const mostLoyal = SimplifiedMembers().reduce((acc, senator) => {
          if (senator.loyaltyPct === 100) { 
-         acc.push(senator)
+       acc.push(senator)
      }
      return acc
     }, [])
+    const cowardList = document.createElement('ol')
+
+    const spineless = mostLoyal.map((coward) => {
+        let listItem = document.createElement('li')
+        listItem.textContent = coward.name
+        cowardList.appendChild(listItem)
+    })
+
+    loyaltyHeading.appendChild(cowardList)
+
     
-    //console.log(mostLoyal)
 
-    populateSenatorDiv(SimplifiedSenators())
+    populateSenatorDiv(SimplifiedMembers())
 
-    //pausing at 40:17 on 11/16 recording. He's right in the middle of solving the const filter issue. Double check to make sure line 12 matches his. Commit this first thing.
+    
