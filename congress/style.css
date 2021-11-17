@@ -3,11 +3,22 @@
     box-sizing: border-box;
 }
 
-header{
-  display: flex;
+header {
+
   justify-content: space-between;
   align-items: center;
+  background-color: #ffe1d9;
+}
+h1{
+    text-align: center;
+    font-size: xxx-large;
+    background-color: #f09997;
+    padding: 1rem;
+}
 
+body{
+    background-color: #ffe1d9;
+    
 }
 .senators {
     display: flex;
@@ -22,4 +33,17 @@ margin: 1rem;
 }
 figcaption{
     text-align: center;
+}
+footer {
+    display:flex;
+    justify-content: center;
+    position: fixed;
+    bottom: 0;
+    padding: 1rem;
+    width: 100%;
+    font-size: 1.5rem;
+    background-color:  #f09997;
+    color: #000000;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+
 }
