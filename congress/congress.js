@@ -5,8 +5,10 @@ import { representatives } from '../data/representatives.js'
 const members = [...senators, ...representatives] //spread method - modern way to combine arrays like a genius! (not genus lol)
 const loyaltyHeading = document.querySelector('.mostLoyal')
 const seniorityHeading = document.querySelector('.seniority')
-
+console.log(members)
+members.forEach(member => console.log(member.short_title))
 const senatorDiv = document.querySelector('.senators') //connecting this to senator Div in html
+let count = 0
 
 function SimplifiedMembers(chamberFilter){ // Here we're creating a function called SimplifiedMembers, and we're going to pass into it the chamberFilter Array
    const filteredArray = members.filter(member => chamberFilter ? member.short_title === chamberFilter : member)
@@ -29,7 +31,12 @@ function SimplifiedMembers(chamberFilter){ // Here we're creating a function cal
 }
 // this forEach loop is looking at each senator in the function, and creating imgs, figures and figCaption elements for each one.
 function populateSenatorDiv(simpleSenators){
+    count = 0
+    clearSenatorData()
+   
     simpleSenators.forEach(senator =>{
+        count++
+        
         const senFigure = document.createElement('figure')
         const figImg = document.createElement('img')
         const figCaption = document.createElement('figcaption')
@@ -41,7 +48,7 @@ function populateSenatorDiv(simpleSenators){
         senFigure.appendChild(figCaption)
         senatorDiv.appendChild(senFigure)
     })
-
+   console.log(count)
 }
     // this is passing it a property and value, (gender and F) and filtering through the simplifiedMembers function saying "Heres the individual senator object" please return the senators property and whatever value it is exactly equal to (as long as it is in our simplifiedSenators mapped data)
     //const filterSenators = (prop, value) =>  SimplifiedMembers().filter(senator => senator[prop] === value)
@@ -64,7 +71,9 @@ function populateSenatorDiv(simpleSenators){
     }, [])
 
    
-//----------------------------
+
+
+    //----------------------------
     const cowardList = document.createElement('ol')
 
     const spineless = mostLoyal.map((coward) => {
@@ -77,21 +86,34 @@ function populateSenatorDiv(simpleSenators){
 
     
 
-    populateSenatorDiv(SimplifiedMembers())
+   // populateSenatorDiv(SimplifiedMembers())
   
     
 
 
+const senator_button = document.querySelector('#senator_button');
+senator_button.addEventListener('click', () => {
+    console.log('click')
+    populateSenatorDiv(SimplifiedMembers('Sen.'))
+})
 
+const representative_button = document.querySelector('#representative_button');
+representative_button.addEventListener('click', () => {
+    console.log('click')
+    populateSenatorDiv(SimplifiedMembers('Rep.'))
+})
 
-
+function clearSenatorData(){
+   while ( senatorDiv.firstChild){
+        senatorDiv.removeChild(senatorDiv.firstChild)
+    }
+}
 
 //I need to link my buttons to each category of congress 
-//(Senators, Representatives, Entire Congress, Rep., Dem., Men, Women)
+//(Senators, Representatives, Entire Congress, Rep., Dem., Most Senior, Most Loyal)
 
-// I need to remove the "spineless members data" and "The most Senior members" data
-//from the homescreen and put it into a drop down menu connected to "entire congress" 
-//or get rid of it entirely
+
+//The senator and representative buttons are working. You just need to connect the other buttons, and then style the page and youre done! Good luck. you're awesome!
 
 
 
