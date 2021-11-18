@@ -48,7 +48,7 @@ function populateSenatorDiv(simpleSenators){
         senFigure.appendChild(figCaption)
         senatorDiv.appendChild(senFigure)
     })
-   console.log(count)
+  //console.log(count)
 }
     // this is passing it a property and value, (gender and F) and filtering through the simplifiedMembers function saying "Heres the individual senator object" please return the senators property and whatever value it is exactly equal to (as long as it is in our simplifiedSenators mapped data)
     //const filterSenators = (prop, value) =>  SimplifiedMembers().filter(senator => senator[prop] === value)
@@ -58,37 +58,36 @@ function populateSenatorDiv(simpleSenators){
     //this is a new function, we're calling the simplifiedMembers array and sorting through it with reduce. We take our accumlator and our senator and eventually return the senator that meets the criteria using a ternary operator. 
     // the ternary operator states this: accumulator (the first time through this is just the first hit it gets), and seniority assigned to it, if your seniority is greater then the senator (2nd paramater), return the accumulater, otherwise return the senator that replaces it.
     const mostSeniorMember = SimplifiedMembers().reduce((acc, senator) => acc.seniority > senator.seniority ? acc : senator) 
-
+console.log(mostSeniorMember)
      seniorityHeading.textContent = `The Most Senior Member of Congress Is: ${mostSeniorMember.name} who has been in congress for ${mostSeniorMember.seniority} years.` //this is putting a heading into the document
 
     // this is calling the simplifiedMembers function, and calling a reduce. We then give it an accumulator and a senator and state, if the senator's loyalty percentage is exactly equal to 100, 
     //then that accumulator gets initialized to that new senator.
-     const mostLoyal = SimplifiedMembers().reduce((acc, senator) => {
-         if (senator.loyaltyPct === 100) { 
-       acc.push(senator)
-     }
-     return acc
-    }, [])
-
-   
 
 
     //----------------------------
     const cowardList = document.createElement('ol')
 
-    const spineless = mostLoyal.map((coward) => {
-        let listItem = document.createElement('li')
-        listItem.textContent = coward.name
-        cowardList.appendChild(listItem)
-    })
+    // const spineless = mostLoyal.map((coward) => {
+    //     let listItem = document.createElement('li')
+    //     listItem.textContent = coward.name
+    //     cowardList.appendChild(listItem)
+    // })
 
-    loyaltyHeading.appendChild(cowardList)
+    // loyaltyHeading.appendChild(cowardList)
 
     
 
-   // populateSenatorDiv(SimplifiedMembers())
+//populateSenatorDiv(SimplifiedMembers())
   
-    
+let mostLoyal = SimplifiedMembers().reduce((acc, senator) => {
+    if (senator.loyaltyPct === 100) { 
+  acc.push(senator)
+}
+return acc
+}, [])
+console.log(mostLoyal)
+
 
 
 const senator_button = document.querySelector('#senator_button');
@@ -99,9 +98,35 @@ senator_button.addEventListener('click', () => {
 
 const representative_button = document.querySelector('#representative_button');
 representative_button.addEventListener('click', () => {
-    console.log('click')
+   console.log('click')
     populateSenatorDiv(SimplifiedMembers('Rep.'))
 })
+
+//this button doesnt work
+const democrats_button = document.querySelector('#democrats_button');
+democrats_button.addEventListener('click', () => {
+    console.log('hi')
+    populateSenatorDiv(SimplifiedMembers('D'))
+})
+// this button doesnt work
+const loyal_button = document.querySelector('#loyal_button');
+loyal_button.addEventListener('click', () =>{
+    console.log('hello')
+   
+    populateSenatorDiv(mostLoyal)
+})
+
+//this button doesnt work yet
+const senior_button = document.querySelector('#senior_button');
+senior_button.addEventListener('click', () => {
+    console.log('weee')
+    let seniorArray = []
+    seniorArray.push(mostSeniorMember)
+    populateSenatorDiv(seniorArray)
+})
+
+
+
 
 function clearSenatorData(){
    while ( senatorDiv.firstChild){
@@ -114,6 +139,4 @@ function clearSenatorData(){
 
 
 //The senator and representative buttons are working. You just need to connect the other buttons, and then style the page and youre done! Good luck. you're awesome!
-
-
 
