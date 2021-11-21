@@ -10,6 +10,7 @@ members.forEach(member => console.log(member.short_title))
 const senatorDiv = document.querySelector('.senators') //connecting this to senator Div in html
 let count = 0
 
+
 function SimplifiedMembers(chamberFilter){ // Here we're creating a function called SimplifiedMembers, and we're going to pass into it the chamberFilter Array
    const filteredArray = members.filter(member => chamberFilter ? member.short_title === chamberFilter : member)
     
@@ -33,20 +34,26 @@ function SimplifiedMembers(chamberFilter){ // Here we're creating a function cal
 function populateSenatorDiv(simpleSenators){
     count = 0
     clearSenatorData()
-   
+    clearMostLoyalMembers()
+    clearMostSeniorMember()
+ 
     simpleSenators.forEach(senator =>{
-        count++
+       
         
         const senFigure = document.createElement('figure')
         const figImg = document.createElement('img')
         const figCaption = document.createElement('figcaption')
+       
 
         figImg.src = senator.imgURL // this is assigning the image url to the figImg source.
         figCaption.textContent = senator.name // this is assigning the text content to the value senator.name
+    
         
         senFigure.appendChild(figImg) // this is adding to DOM
         senFigure.appendChild(figCaption)
         senatorDiv.appendChild(senFigure)
+        senFigure.appendChild(seniorityHeading)
+        senatorDiv.appendChild(loyaltyHeading)
     })
   //console.log(count)
 }
@@ -58,8 +65,7 @@ function populateSenatorDiv(simpleSenators){
     //this is a new function, we're calling the simplifiedMembers array and sorting through it with reduce. We take our accumlator and our senator and eventually return the senator that meets the criteria using a ternary operator. 
     // the ternary operator states this: accumulator (the first time through this is just the first hit it gets), and seniority assigned to it, if your seniority is greater then the senator (2nd paramater), return the accumulater, otherwise return the senator that replaces it.
     const mostSeniorMember = SimplifiedMembers().reduce((acc, senator) => acc.seniority > senator.seniority ? acc : senator) 
-console.log(mostSeniorMember)
-     seniorityHeading.textContent = `The Most Senior Member of Congress Is: ${mostSeniorMember.name} who has been in congress for ${mostSeniorMember.seniority} years.` //this is putting a heading into the document
+   
 
     // this is calling the simplifiedMembers function, and calling a reduce. We then give it an accumulator and a senator and state, if the senator's loyalty percentage is exactly equal to 100, 
     //then that accumulator gets initialized to that new senator.
@@ -86,7 +92,7 @@ let mostLoyal = SimplifiedMembers().reduce((acc, senator) => {
 }
 return acc
 }, [])
-console.log(mostLoyal)
+
 
 
 
@@ -102,35 +108,41 @@ representative_button.addEventListener('click', () => {
     populateSenatorDiv(SimplifiedMembers('Rep.'))
 })
 
-//this button doesnt work
-const democrats_button = document.querySelector('#democrats_button');
-democrats_button.addEventListener('click', () => {
-    console.log('hi')
-    populateSenatorDiv(SimplifiedMembers('D'))
-})
+
 // this button doesnt work
 const loyal_button = document.querySelector('#loyal_button');
 loyal_button.addEventListener('click', () =>{
     console.log('hello')
-   
     populateSenatorDiv(mostLoyal)
+    loyaltyHeading.textContent = 'These are the most loyal members of Congress, who vote with their paty 100% of the time.'
 })
 
-//this button doesnt work yet
+
 const senior_button = document.querySelector('#senior_button');
 senior_button.addEventListener('click', () => {
-    console.log('weee')
     let seniorArray = []
     seniorArray.push(mostSeniorMember)
     populateSenatorDiv(seniorArray)
+    seniorityHeading.textContent = `The Most Senior Member of Congress Is: ${mostSeniorMember.name} who has been in congress for ${mostSeniorMember.seniority} years.` //this is putting a heading into the document
+    
 })
-
-
 
 
 function clearSenatorData(){
    while ( senatorDiv.firstChild){
         senatorDiv.removeChild(senatorDiv.firstChild)
+     
+    }
+}
+
+function clearMostSeniorMember(){
+    while (seniorityHeading.firstChild){
+        seniorityHeading.removeChild(seniorityHeading.firstChild)
+    }
+}
+function clearMostLoyalMembers(){
+    while (loyaltyHeading.firstChild){
+        loyaltyHeading.removeChild(loyaltyHeading.firstChild)
     }
 }
 
