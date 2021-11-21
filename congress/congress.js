@@ -5,10 +5,9 @@ import { representatives } from '../data/representatives.js'
 const members = [...senators, ...representatives] //spread method - modern way to combine arrays like a genius! (not genus lol)
 const loyaltyHeading = document.querySelector('.mostLoyal')
 const seniorityHeading = document.querySelector('.seniority')
-console.log(members)
 members.forEach(member => console.log(member.short_title))
 const senatorDiv = document.querySelector('.senators') //connecting this to senator Div in html
-let count = 0
+
 
 
 function SimplifiedMembers(chamberFilter){ // Here we're creating a function called SimplifiedMembers, and we're going to pass into it the chamberFilter Array
@@ -32,7 +31,7 @@ function SimplifiedMembers(chamberFilter){ // Here we're creating a function cal
 }
 // this forEach loop is looking at each senator in the function, and creating imgs, figures and figCaption elements for each one.
 function populateSenatorDiv(simpleSenators){
-    count = 0
+   
     clearSenatorData()
     clearMostLoyalMembers()
     clearMostSeniorMember()
@@ -55,37 +54,18 @@ function populateSenatorDiv(simpleSenators){
         senFigure.appendChild(seniorityHeading)
         senatorDiv.appendChild(loyaltyHeading)
     })
-  //console.log(count)
+ 
 }
-    // this is passing it a property and value, (gender and F) and filtering through the simplifiedMembers function saying "Heres the individual senator object" please return the senators property and whatever value it is exactly equal to (as long as it is in our simplifiedSenators mapped data)
-    //const filterSenators = (prop, value) =>  SimplifiedMembers().filter(senator => senator[prop] === value)
-    //console.log(filterSenators('gender', 'F'))
-
-
+   
     //this is a new function, we're calling the simplifiedMembers array and sorting through it with reduce. We take our accumlator and our senator and eventually return the senator that meets the criteria using a ternary operator. 
     // the ternary operator states this: accumulator (the first time through this is just the first hit it gets), and seniority assigned to it, if your seniority is greater then the senator (2nd paramater), return the accumulater, otherwise return the senator that replaces it.
     const mostSeniorMember = SimplifiedMembers().reduce((acc, senator) => acc.seniority > senator.seniority ? acc : senator) 
    
 
-    // this is calling the simplifiedMembers function, and calling a reduce. We then give it an accumulator and a senator and state, if the senator's loyalty percentage is exactly equal to 100, 
+  
+// this is calling the simplifiedMembers function, and calling a reduce. We then give it an accumulator and a senator and state, if the senator's loyalty percentage is exactly equal to 100, 
     //then that accumulator gets initialized to that new senator.
 
-
-    //----------------------------
-    const cowardList = document.createElement('ol')
-
-    // const spineless = mostLoyal.map((coward) => {
-    //     let listItem = document.createElement('li')
-    //     listItem.textContent = coward.name
-    //     cowardList.appendChild(listItem)
-    // })
-
-    // loyaltyHeading.appendChild(cowardList)
-
-    
-
-//populateSenatorDiv(SimplifiedMembers())
-  
 let mostLoyal = SimplifiedMembers().reduce((acc, senator) => {
     if (senator.loyaltyPct === 100) { 
   acc.push(senator)
@@ -109,12 +89,13 @@ representative_button.addEventListener('click', () => {
 })
 
 
-// this button doesnt work
 const loyal_button = document.querySelector('#loyal_button');
 loyal_button.addEventListener('click', () =>{
-    console.log('hello')
+   
     populateSenatorDiv(mostLoyal)
-    loyaltyHeading.textContent = 'These are the most loyal members of Congress, who vote with their paty 100% of the time.'
+    loyaltyHeading.textContent = 'These are the most loyal members of Congress, who vote with their party 100% of the time.'
+    
+    
 })
 
 
@@ -145,10 +126,3 @@ function clearMostLoyalMembers(){
         loyaltyHeading.removeChild(loyaltyHeading.firstChild)
     }
 }
-
-//I need to link my buttons to each category of congress 
-//(Senators, Representatives, Entire Congress, Rep., Dem., Most Senior, Most Loyal)
-
-
-//The senator and representative buttons are working. You just need to connect the other buttons, and then style the page and youre done! Good luck. you're awesome!
-
