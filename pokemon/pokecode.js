@@ -1,3 +1,4 @@
+import{removeChildren } from '../utils/index.js'
 async function getAPIData(url){
     try{
        return fetch(url).then((data) => data.json())
@@ -6,19 +7,32 @@ async function getAPIData(url){
     }
 }
 
-getAPIData(`https://pokeapi.co/api/v2/pokemon/?limit=25`)
-.then((data) => {
+function loadPokemon(offset = 0, limit = 25){
+    removeChildren(pokeGrid)
+   getAPIData 
+   (`https://pokeapi.co/api/v2/pokemon/?limit=${limit}&offset=${offset}`)
+    .then(async (data) => {
     console.log(data)
     for (const pokemon of data.results){
-        getAPIData(pokemon.url).then(pokeData => populatePokeCards(pokeData))
+       await getAPIData(pokemon.url).then(pokeData => populatePokeCards(pokeData))
 
     }
-   
+
 })
+}
 
 const pokeGrid = document.querySelector('.pokeGrid')
-
-
+const loadButton = document.querySelector('.loadPokemon')
+loadButton.addEventListener('click', () => loadPokemon(800, 50))
+const newButton = document.querySelector('.newPokemon')
+newButton.addEventListener('click',() => {
+    let pokeName = prompt('What is the name of your new pokemon?')
+    let pokeHeight = prompt('What is the height of your Pokemon?')
+    let pokeAbilities = prompt('What are your Pokemon abilities?(use a comma separated list')
+    let newPokemon = new Pokemon(pokeName, pokeHeight, 3785, pokeAbilities)
+    console.log(newPokemon)
+   
+})
 
 function populatePokeCards(singlePokemon){
     const pokeScene = document.createElement('div')
@@ -66,4 +80,12 @@ function populateCardBack (pokemon){
     pokeBack.appendChild(label)
     pokeBack.appendChild(abilityList)
     return pokeBack
+}
+class Pokemon{
+    constructor (name, height, weight){
+        ;(this.name = name,
+        this.height = height,
+        this.weight = weight,
+        this.abilities = abilities)
+    }
 }
