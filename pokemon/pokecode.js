@@ -14,7 +14,7 @@ function loadPokemon(offset = 0, limit = 25){
     .then(async (data) => {
     console.log(data)
     for (const pokemon of data.results){
-       await getAPIData(pokemon.url).then(pokeData => populatePokeCards(pokeData))
+       await getAPIData(pokemon.url).then(pokeData => populatePokeCard(pokeData))
 
     }
 
@@ -23,18 +23,43 @@ function loadPokemon(offset = 0, limit = 25){
 
 const pokeGrid = document.querySelector('.pokeGrid')
 const loadButton = document.querySelector('.loadPokemon')
-loadButton.addEventListener('click', () => loadPokemon(800, 50))
+loadButton.addEventListener('click', () => {
+    removeChildren(pokeGrid)
+    loadPokemon()
+})
 const newButton = document.querySelector('.newPokemon')
 newButton.addEventListener('click',() => {
     let pokeName = prompt('What is the name of your new pokemon?')
     let pokeHeight = prompt('What is the height of your Pokemon?')
     let pokeAbilities = prompt('What are your Pokemon abilities?(use a comma separated list')
-    let newPokemon = new Pokemon(pokeName, pokeHeight, 3785, pokeAbilities)
+
+    let newPokemon = new Pokemon(pokeName, pokeHeight, 3785, getAbilitiesArray (pokeAbilities))
+
     console.log(newPokemon)
+    populatePokeCard(newPokemon)
    
 })
 
-function populatePokeCards(singlePokemon){
+const morePokemon = document.querySelector('.morePokemon')
+morePokemon.addEventListener('click', () => {
+    let startPoint = prompt('Which Pokemon ID do we want to start with?')
+    let howMany = prompt('How many more Pokemon do you want to see?')
+    loadPokemon(startPoint, howMany)
+})
+
+function getAbilitiesArray(commaString){
+    let tempArray = commaString.split(',')
+    console.log(tempArray)
+    return tempArray.map((abilityName) => {
+        return {
+            ability: {
+                name: abilityName
+            }
+        }
+    })
+}
+
+function populatePokeCard(singlePokemon){
     const pokeScene = document.createElement('div')
     pokeScene.className = 'scene'
     const pokeCard = document.createElement('div')
@@ -42,13 +67,15 @@ function populatePokeCards(singlePokemon){
     pokeCard.addEventListener('click', () =>
         pokeCard.classList.toggle('is-flipped')
     )
-  const front = populateCardFront(singlePokemon)
+   const front = populateCardFront(singlePokemon)
    const back = populateCardBack (singlePokemon)
+//    const backImg = populateCardBackImg(singlePokemon)
 
-    pokeCard.appendChild(front)
+   pokeCard.appendChild(front)
     pokeCard.appendChild(back)
     pokeScene.appendChild(pokeCard)
     pokeGrid.appendChild(pokeScene)
+    // pokeGrid.appendChild(backImg)
 
 }
 
@@ -56,9 +83,14 @@ function populateCardFront(pokemon){
     const pokeFront = document.createElement('figure')
     pokeFront.className = 'cardFace front'
     const pokeImg = document.createElement('img')
-    pokeImg.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`
+    if(pokemon.id === 9001){
+        pokeImg.src = '../images/pokemonColor.jpeg'
+  } else {
+       pokeImg.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`
+ }
+   
     const pokeCaption = document.createElement('figcaption')
-    pokeCaption.textContent = pokemon.name
+    pokeCaption.textContent = `${pokemon.id} ${pokemon.name}`
     pokeFront.appendChild(pokeImg)
     pokeFront.appendChild(pokeCaption)
     return pokeFront
@@ -66,6 +98,7 @@ function populateCardFront(pokemon){
 
 function populateCardBack (pokemon){
     const pokeBack = document.createElement('div')
+   
     pokeBack.className = 'cardFace back'
 
     const label = document.createElement('h4')
@@ -80,12 +113,33 @@ function populateCardBack (pokemon){
     pokeBack.appendChild(label)
     pokeBack.appendChild(abilityList)
     return pokeBack
+
 }
+
+//  function populateCardBackImg(pokemon){
+//     const backImg = document.createElement('figure')
+//     backImg.className = 'cardImg back'
+//     const pokeImg = document.createElement('img')
+//     if(pokemon.id === 9001){
+//         pokeImg.src = '../images/pokemonColor.jpeg'
+//   } else {
+//        pokeImg.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`
+//  }
+//  const pokeCaption = document.createElement('figcaption')
+//  pokeCaption.textContent = `${pokemon.id} ${pokemon.name}`
+//  backImg.appendChild(pokeImg)
+//  backImg.appendChild(pokeCaption)
+//  return backImg
+// }
+
+
+
 class Pokemon{
-    constructor (name, height, weight){
-        ;(this.name = name,
-        this.height = height,
-        this.weight = weight,
-        this.abilities = abilities)
+    constructor (name, height, weight, abilities){
+        this.id = 9001    ,
+        (this.name = name),
+        (this.height = height),
+        (this.weight = weight),
+        (this.abilities = abilities)
     }
 }

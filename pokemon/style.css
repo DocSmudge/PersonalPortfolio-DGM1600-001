@@ -1,16 +1,114 @@
 *{
     margin: 0;
     box-sizing: border-box;
+    font-family: 'Pokemon Solid', sans-serif;  
 }
+
+body{
+   background-color: #3c5aa6 
+}
+
+
+
+header h1{
+    text-align: center;
+   
+    
+}
+.buttons {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    text-align: center;
+    
+
+}
+
+button:hover{
+    color: #000000;
+    transform: translateY(8px);
+    transition: all 0.5s;
+}
+
+/* div.loadPokemonLabel{
+    float:right;
+    margin-right: 45%;
+ 
+}
+
+
+div.loadMorePokemonLabel{
+    float: left;
+   
+ 
+}
+
+
+div.createPokemonLabel{
+    float: left;
+   
+ 
+} */
+
+
+
+
+.loadPokemon{
+background-image: url("../images/pokeBall.png");
+background-color: #3c5aa6;
+border-style: none;
+padding: 40px; 
+height: 80px;
+line-height: 80px;  
+width: 80px;  
+border-radius: 50%;
+margin: 5rem;
+margin-bottom: 0;
+
+}
+
+
+.newPokemon{
+    background-image: url("../images/pokeBall.png");
+    background-color: #3c5aa6;
+    border-style: none;
+    padding: 40px; 
+    height: 80px;
+    line-height: 80px;  
+    width: 80px;  
+    border-radius: 50%;
+    margin: 5rem;
+    
+    
+    }
+
+    .morePokemon{
+        background-image: url("../images/pokeBall.png");
+        background-color: #3c5aa6;
+        border-style: none;
+        padding: 40px; 
+        height: 80px;
+        line-height: 80px;  
+        width: 80px;  
+        border-radius: 50%;
+        margin: 5rem;
+        
+    
+        }
+
+
 .pokeGrid{
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-evenly;
+    
 }
 .scene{
     width:200px;
     height: 260px;
     perspective: 600px;
     margin: .5rem;
+   
 }
 
 .card{
@@ -35,12 +133,24 @@ transform: rotateY(180deg);
     
 }
 
+
+div.cardFace.back h4{
+     margin: 10px;
+     font-family: monospace;
+    }
+
+    div.cardFace.back ul li{
+        margin: 10px;
+        font-family: monospace;
+       }
+   
+
 .front{
-    background: #2a75bb;
+    background-image: url("../images/pokemonColor.jpeg");
 }
 
 .back{
-    background: #c7a008;
+    background: #ffcb05;
     transform: rotateY(180deg);
 }
 
