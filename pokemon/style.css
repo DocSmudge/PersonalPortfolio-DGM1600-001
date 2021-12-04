@@ -1,160 +1,120 @@
-*{
-    margin: 0;
-    box-sizing: border-box;
-    font-family: 'Pokemon Solid', sans-serif;  
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Pokemon Solid", sans-serif;
 }
 
-body{
-   background-color: #3c5aa6 
+body {
+  background-color: #3c5aa6;
 }
 
-
-
-header h1{
-    text-align: center;
-    font-size:3rem;
-    margin: 12px 0;
-    
+header h1 {
+  text-align: center;
+  font-size: 3rem;
+  margin: 12px 0;
 }
-.buttons {
-    display: flex;
-    width: 100%;
-    table-layout: fixed;
-    text-align: center;
-    
-
+.pokeBalls {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem 1rem;
 }
 
-button:hover{
-    color: #000000;
-    transform: translateY(8px);
-    transition: all 0.5s;
+.pokeBallContainer:hover {
+  color: #000000;
+  transform: translateY(8px);
+  transition: all 0.5s;
 }
 
-/* div.loadPokemonLabel{
-    float:right;
-    margin-right: 45%;
- 
+.pokeBallContainer {
+  margin: 3rem 3rem;
 }
 
-
-div.loadMorePokemonLabel{
-    float: left;
-   
- 
+.loadPokemon {
+  background-image: url("../images/pokeBall.png");
+  background-color: #3c5aa6;
+  border-style: none;
+  padding: 40px;
+  height: 80px;
+  line-height: 80px;
+  width: 80px;
+  border-radius: 50%;
 }
 
-
-div.createPokemonLabel{
-    float: left;
-   
- 
-} */
-
-
-
-
-.loadPokemon{
-background-image: url("../images/pokeBall.png");
-background-color: #3c5aa6;
-border-style: none;
-padding: 40px; 
-height: 80px;
-line-height: 80px;  
-width: 80px;  
-border-radius: 50%;
-margin: 5rem;
-margin-bottom: 0;
-
+.newPokemon {
+  background-image: url("../images/pokeBall.png");
+  background-color: #3c5aa6;
+  border-style: none;
+  padding: 40px;
+  height: 80px;
+  line-height: 80px;
+  width: 80px;
+  border-radius: 50%;
 }
 
-
-.newPokemon{
-    background-image: url("../images/pokeBall.png");
-    background-color: #3c5aa6;
-    border-style: none;
-    padding: 40px; 
-    height: 80px;
-    line-height: 80px;  
-    width: 80px;  
-    border-radius: 50%;
-    margin: 5rem;
-    
-    
-    }
-
-    .morePokemon{
-        background-image: url("../images/pokeBall.png");
-        background-color: #3c5aa6;
-        border-style: none;
-        padding: 40px; 
-        height: 80px;
-        line-height: 80px;  
-        width: 80px;  
-        border-radius: 50%;
-        margin: 5rem;
-        
-    
-        }
-
-
-.pokeGrid{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    
-}
-.scene{
-    width:200px;
-    height: 260px;
-    perspective: 600px;
-    margin: .5rem;
-   
+.morePokemon {
+  background-image: url("../images/pokeBall.png");
+  background-color: #3c5aa6;
+  border-style: none;
+  padding: 40px;
+  height: 80px;
+  line-height: 80px;
+  width: 80px;
+  border-radius: 50%;
 }
 
-.card{
-    width: 100%;
-    height: 100%;
-    position: relative;
-    transition: transform 1s;
-    transform-style: preserve-3d;
-    cursor: pointer;
+.pokeGrid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.scene {
+  width: 200px;
+  height: 260px;
+  perspective: 600px;
+  margin: 0.5rem;
 }
 
+.card {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
 
-.card.is-flipped{
-transform: rotateY(180deg);
+.card.is-flipped {
+  transform: rotateY(180deg);
 }
 
 .cardFace {
-    backface-visibility: hidden;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    
+  backface-visibility: hidden;
+  position: absolute;
+  width: 100%;
+  height: 100%;
 }
 
-
-div.cardFace.back h4{
-     margin: 10px;
-     font-family: monospace;
-    }
-
-    div.cardFace.back ul li{
-        margin: 10px;
-        font-family: monospace;
-       }
-   
-
-.front{
-    background-image: url("../images/pokemonColor.jpeg");
+div.cardFace.back h4 {
+  margin: 10px;
+  font-family: monospace;
 }
 
-.back{
-    background: #ffcb05;
-    transform: rotateY(180deg);
+div.cardFace.back ul li {
+  margin: 10px;
+  font-family: monospace;
+}
+
+.front {
+  background-image: url("../images/pokemonColor.jpeg");
+}
+
+.back {
+  background: #ffcb05;
+  transform: rotateY(180deg);
 }
 
 figure img {
-    width: 200px;
+  width: 200px;
 }
