@@ -67,72 +67,57 @@ function getAbilitiesArray(commaString) {
 
 function populatePokeCard(singlePokemon) {
   const pokeScene = document.createElement("div");
-  pokeScene.className = "scene";
   const pokeCard = document.createElement("div");
+
+  pokeScene.className = "scene";
   pokeCard.className = "card";
+
   pokeCard.addEventListener("click", () =>
     pokeCard.classList.toggle("is-flipped")
   );
-  const front = populateCardFront(singlePokemon);
+  const front = populateCardFront();
   const back = populateCardBack(singlePokemon);
-  // const backImg = populateCardBackImg(singlePokemon)
 
   pokeCard.appendChild(front);
   pokeCard.appendChild(back);
   pokeScene.appendChild(pokeCard);
   pokeGrid.appendChild(pokeScene);
-  // pokeGrid.appendChild(backImg)
 }
 
-function populateCardFront(pokemon) {
+function populateCardFront() {
   const pokeFront = document.createElement("figure");
   pokeFront.className = "cardFace front";
-  const pokeImg = document.createElement("img");
-  if (pokemon.id === 9001) {
-    pokeImg.src = "../images/pokemonColor.jpeg";
-  } else {
-    pokeImg.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`;
-  }
-
-  const pokeCaption = document.createElement("figcaption");
-  pokeCaption.textContent = `${pokemon.id} ${pokemon.name}`;
-  pokeFront.appendChild(pokeImg);
-  pokeFront.appendChild(pokeCaption);
   return pokeFront;
 }
 
 function populateCardBack(pokemon) {
   const pokeBack = document.createElement("div");
-
-  pokeBack.className = "cardFace back";
-
+  const pokeCaption = document.createElement("h4");
   const label = document.createElement("h4");
-  label.textContent = "Abilities:";
   const abilityList = document.createElement("ul");
-  pokemon.abilities.forEach((ability) => {
-    let abilityItem = document.createElement("li");
-    abilityItem.textContent = ability.ability.name;
-    abilityList.appendChild(abilityItem);
-  });
-  pokeBack.appendChild(label);
-  pokeBack.appendChild(abilityList);
-  return pokeBack;
-}
-
-function populateCardBackImg(pokemon) {
-  const backImg = document.createElement("figure");
-  backImg.className = "cardImg back";
   const pokeImg = document.createElement("img");
+  let abilityItem = document.createElement("li");
+
   if (pokemon.id === 9001) {
-    pokeImg.src = "../images/pokemonColor.jpeg";
+    pokeImg.src = "../images/pokeBall.png";
   } else {
     pokeImg.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`;
   }
-  const pokeCaption = document.createElement("figcaption");
-  pokeCaption.textContent = `${pokemon.id} ${pokemon.name}`;
-  backImg.appendChild(pokeImg);
-  backImg.appendChild(pokeCaption);
-  return backImg;
+
+  pokeBack.className = "cardFace back";
+  pokeCaption.innerHTML = `${pokemon.id} ${pokemon.name}`;
+  pokeBack.backgroundImg = "url('../images/pokemonColor.jpeg')";
+  label.textContent = "Abilities:";
+
+  pokemon.abilities.forEach((ability) => {
+    abilityItem.textContent = ability.ability.name;
+    abilityList.appendChild(abilityItem);
+  });
+  pokeBack.appendChild(pokeImg);
+  pokeBack.appendChild(pokeCaption);
+  pokeBack.appendChild(label);
+  pokeBack.appendChild(abilityList);
+  return pokeBack;
 }
 
 class Pokemon {
@@ -144,3 +129,6 @@ class Pokemon {
       (this.abilities = abilities);
   }
 }
+
+//   pokeFront.appendChild(pokeImg);
+//   pokeFront.appendChild(pokeCaption);

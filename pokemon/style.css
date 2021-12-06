@@ -21,6 +21,9 @@ header h1 {
   padding: 1rem 1rem;
 }
 
+.pokeBallContainer button {
+  cursor: pointer;
+}
 .pokeBallContainer:hover {
   color: #000000;
   transform: translateY(8px);
@@ -115,7 +118,14 @@ div.cardFace.back ul li {
   color: white;
   transform: rotateY(180deg);
 }
-
+.back img {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 135px;
+}
 figure img {
   width: 200px;
 }
