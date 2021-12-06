@@ -5,7 +5,7 @@
 }
 
 body {
-  background-color: #3c5aa6;
+  background-color: #ffcb05;
 }
 
 header h1 {
@@ -33,7 +33,7 @@ header h1 {
 
 .loadPokemon {
   background-image: url("../images/pokeBall.png");
-  background-color: #3c5aa6;
+  background-color: #ffcb05;
   border-style: none;
   padding: 40px;
   height: 80px;
@@ -44,7 +44,7 @@ header h1 {
 
 .newPokemon {
   background-image: url("../images/pokeBall.png");
-  background-color: #3c5aa6;
+  background-color: #ffcb05;
   border-style: none;
   padding: 40px;
   height: 80px;
@@ -55,7 +55,7 @@ header h1 {
 
 .morePokemon {
   background-image: url("../images/pokeBall.png");
-  background-color: #3c5aa6;
+  background-color: #ffcb05;
   border-style: none;
   padding: 40px;
   height: 80px;
@@ -111,7 +111,8 @@ div.cardFace.back ul li {
 }
 
 .back {
-  background: #ffcb05;
+  background: #3c5aa6;
+  color: white;
   transform: rotateY(180deg);
 }
 
