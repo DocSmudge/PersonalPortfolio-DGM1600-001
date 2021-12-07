@@ -129,3 +129,7 @@ div.cardFace.back ul li {
 figure img {
   width: 200px;
 }
+
+h4:first-letter {
+  text-transform: uppercase;
+}

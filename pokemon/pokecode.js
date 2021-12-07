@@ -105,7 +105,7 @@ function populateCardBack(pokemon) {
   }
 
   pokeBack.className = "cardFace back";
-  pokeCaption.innerHTML = `${pokemon.id} ${pokemon.name}`;
+  pokeCaption.innerHTML = `${pokemon.name}`;
   pokeBack.backgroundImg = "url('../images/pokemonColor.jpeg')";
   label.textContent = "Abilities:";
 
