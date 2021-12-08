@@ -1,81 +1,79 @@
-*{
-margin: 0;
-box-sizing: border-box;
-font-family: Georgia, 'Times New Roman', Times, serif;
-
-
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Georgia, "Times New Roman", Times, serif;
 }
-h1{
-    text-align: center;
-    font-size: xxx-large;
-    background-color: #f09997;
+h1 {
+  text-align: center;
+  font-size: xxx-large;
+  background-color: #f09997;
 }
-header{
-    display:flex;
-    justify-content: space-around;
-    background-color: #f09997;
-   /* margin: 2em 0;*/
-   padding: .7rem 0;
-  
+header {
+  display: flex;
+  justify-content: space-around;
+  background-color: #f09997;
+  /* margin: 2em 0;*/
+  padding: 0.7rem 0;
 }
 
-body{
-    background-color: #ffe1d9;
+body {
+  background-color: #ffe1d9;
 }
-
 
 button {
+  padding: 15px;
+  border: 0.2em solid #b76f6c;
+  margin: 1rem;
 
-    padding: 15px;
-    border: 0.2em solid #b76f6c;
-    margin: 1rem;
-   
-    border-radius: .60rem;
-    box-sizing: border-box;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 20px;
-    color:#000000;
-    background-color: #f09997;
-    transition: all 0.5s;
-    }
+  border-radius: 0.6rem;
+  box-sizing: border-box;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 20px;
+  color: #000000;
+  background-color: #f09997;
+  transition: all 0.5s;
+}
 
-    button:hover{
-        color: #000000;
-        background-color: white;
-    }
-
+button:hover {
+  color: #000000;
+  background-color: white;
+}
 
 #main {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    background-color: #ffe1d9;
-}
- 
-figure{
-    margin: 4px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: #ffe1d9;
+  margin-top:20px;
+  margin-bottom: 80px;
+
 }
 
-figure img{
-    width: 200px;
+figure {
+  margin: 4px;
+  border: #f09997 solid;
+  border-width: 10px;
+  background-color: #f09997;
 }
 
-figcaption{
-    text-align: center;
+figure img {
+  width: 200px;
 }
 
-  
+figcaption {
+  text-align: center;
+  background-color: #f09997;
+}
+
 footer {
-    display:flex;
-    justify-content: center;
-    position: fixed;
-    bottom: 0;
-    padding: 1rem;
-    width: 100%;
-    font-size: 1.5rem;
-    background-color:  #f09997;
-    color: #000000;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-
-}
-
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  bottom: 0;
+  padding: 1rem;
+  width: 100%;
+  font-size: 1.5rem;
+  background-color: #f09997;
+  color: #000000;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  

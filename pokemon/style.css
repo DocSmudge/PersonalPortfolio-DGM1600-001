@@ -1,17 +1,19 @@
 * {
   margin: 0;
   box-sizing: border-box;
-  font-family: "Pokemon Solid", sans-serif;
 }
-
+main {
+  margin-bottom: 80px;
+}
 body {
-  background-color: #ffcb05;
+  background-color: #2a75bb;
 }
 
 header h1 {
   text-align: center;
   font-size: 3rem;
-  margin: 12px 0;
+  background-color: #ffcb05;
+  font-family: "Pokemon Solid", sans-serif;
 }
 .pokeBalls {
   display: flex;
@@ -19,6 +21,7 @@ header h1 {
   justify-content: center;
   text-align: center;
   padding: 1rem 1rem;
+  font-family: "Pokemon Solid", sans-serif;
 }
 
 .pokeBallContainer button {
@@ -114,8 +117,8 @@ div.cardFace.back ul li {
 }
 
 .back {
-  background: #3c5aa6;
-  color: white;
+  background: #ffcb05;
+  color: black;
   transform: rotateY(180deg);
 }
 .back img {
@@ -132,4 +135,16 @@ figure img {
 
 h4:first-letter {
   text-transform: uppercase;
+}
+footer {
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  bottom: 0;
+  padding: 1rem;
+  width: 100%;
+  font-size: 1.5rem;
+  background-color: #ffcb05;
+  color: #000000;
+  font-family: Georgia, "Times New Roman", Times, serif;
 }
