@@ -96,7 +96,6 @@ function populateCardBack(pokemon) {
   const label = document.createElement("h4");
   const abilityList = document.createElement("ul");
   const pokeImg = document.createElement("img");
-  let abilityItem = document.createElement("li");
 
   if (pokemon.id === 9001) {
     pokeImg.src = "../images/pokeBall.png";
@@ -110,6 +109,7 @@ function populateCardBack(pokemon) {
   label.textContent = "Abilities:";
 
   pokemon.abilities.forEach((ability) => {
+    let abilityItem = document.createElement("li");
     abilityItem.textContent = ability.ability.name;
     abilityList.appendChild(abilityItem);
   });
