@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link href="http://fonts.cdnfonts.com/css/pokemon-solid" rel="stylesheet" />
+    <link
+      href="https://fonts.cdnfonts.com/css/pokemon-solid"
+      rel="stylesheet"
+    />
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="style.css" rel="stylesheet" />
+    <audio src="pokemon.mp3" controls></audio>
     <title>Pokemon Cards</title>
   </head>
   <body>
@@ -14,7 +18,11 @@
     </header>
     <div class="pokeBalls">
       <div class="pokeBallContainer">
-        <button class="loadPokemon"></button>
+        <button class="loadPokemon" onclick="pikachu.play();"></button>
+        <script>
+          const pikachu = new Audio();
+          pikachu.src = "1.mp3";
+        </script>
         <h4>Load Pokemon</h4>
       </div>
 
