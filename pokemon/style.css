@@ -2,6 +2,11 @@
   margin: 0;
   box-sizing: border-box;
 }
+
+.audio {
+  width: 500px;
+}
+
 main {
   margin-bottom: 80px;
 }
