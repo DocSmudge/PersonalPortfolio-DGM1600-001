@@ -1,10 +1,11 @@
 import { people } from "../data/people.js";
-import { getLastNumber,removeChildren } from "../utils/index.js";
+import { getLastNumber, removeChildren } from "../utils/index.js";
 
-const mainContent = document.querySelector("#main");
+const mainContent = document.querySelector("#main"); //returns the first element that matches a specified CSS selector in the document.
 const maleCharacters = people.filter((person) => person.gender === "male");
 const femaleCharacters = people.filter((person) => person.gender === "female");
 const otherCharacters = people.filter((person) => {
+  //
   if (
     person.gender === "hermaphrodite" ||
     person.gender === "n/a" ||
@@ -26,7 +27,7 @@ function populateDOM(characters) {
     const charCaption = document.createElement("figcaption");
     // <figcapton></figcapton>
 
-    // Grabbing the id from url 
+    // Grabbing the id from url
     const charNum = getLastNumber(character.url);
 
     /* minipulating elements */
@@ -57,6 +58,7 @@ function populateDOM(characters) {
 }
 
 function handleCharacterSelect(activeCharacters) {
+  //activeCharacters is the paramater for this function
   removeChildren(mainContent);
   populateDOM(activeCharacters);
 }
@@ -77,11 +79,15 @@ header.appendChild(maleButton);
 header.appendChild(femaleButton);
 header.appendChild(otherButton);
 
-maleButton.addEventListener("click", () => handleCharacterSelect(maleCharacters));
-femaleButton.addEventListener("click", () => handleCharacterSelect(femaleCharacters));
-otherButton.addEventListener("click", () => handleCharacterSelect(otherCharacters));
+//Buttons
+maleButton.addEventListener("click", () =>
+  handleCharacterSelect(maleCharacters)
+);
+femaleButton.addEventListener("click", () =>
+  handleCharacterSelect(femaleCharacters)
+);
+otherButton.addEventListener("click", () =>
+  handleCharacterSelect(otherCharacters)
+);
 
-document.body.insertBefore(header, mainContent);
-
-
-
+document.body.insertBefore(header, mainContent); // This moves the header to the top of the document, above main content.

@@ -29,6 +29,7 @@ loadButton.addEventListener("click", () => {
 });
 const newButton = document.querySelector(".newPokemon");
 newButton.addEventListener("click", () => {
+  removeChildren(pokeGrid);
   let pokeName = prompt("What is the name of your new pokemon?");
   let pokeHeight = prompt("What is the height of your Pokemon?");
   let pokeAbilities = prompt(
@@ -129,6 +130,3 @@ class Pokemon {
       (this.abilities = abilities);
   }
 }
-
-//   pokeFront.appendChild(pokeImg);
-//   pokeFront.appendChild(pokeCaption);
